@@ -1,0 +1,4 @@
+; Add these directives inside the existing [www] pool.
+; Do not paste a second [www] section into an existing pool file.
+pm.status_path = /status
+ping.path = /ping

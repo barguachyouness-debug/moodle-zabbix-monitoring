@@ -1,0 +1,14 @@
+flowchart LR
+    subgraph NET[VirtualBox Host-only Network - 192.168.56.0/24]
+        ZBX[Zabbix Appliance<br/>192.168.56.100<br/>Zabbix Server + Frontend]
+        subgraph MOODLE[Moodle VM - Ubuntu Server 24.04<br/>192.168.56.10]
+            AGENT[Zabbix Agent 2<br/>7.0.32<br/>TCP 10050]
+            NGINX[NGINX<br/>127.0.0.1:8082<br/>/nginx_status]
+            FPM[PHP-FPM 8.3<br/>/status and /ping<br/>/run/php/php8.3-fpm.sock]
+            DB[MariaDB 10.11.14<br/>/run/mysqld/mysqld.sock]
+            AGENT -->|web.page.get| NGINX
+            AGENT -->|web.page.get| FPM
+            AGENT -->|MySQL plugin session MoodleDB| DB
+        end
+        ZBX -->|Passive checks TCP 10050| AGENT
+    end

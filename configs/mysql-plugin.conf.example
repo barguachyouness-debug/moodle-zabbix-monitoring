@@ -1,0 +1,6 @@
+# Sanitized example only. Store the real file locally under:
+# /etc/zabbix/zabbix_agent2.d/plugins.d/mysql.conf
+# Never commit real database credentials.
+Plugins.Mysql.Sessions.MoodleDB.Uri=unix:/run/mysqld/mysqld.sock
+Plugins.Mysql.Sessions.MoodleDB.User=zbx_monitor
+Plugins.Mysql.Sessions.MoodleDB.Password=REPLACE_WITH_LOCAL_SECRET

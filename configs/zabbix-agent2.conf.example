@@ -1,0 +1,5 @@
+# Sanitized example for the Moodle VM. Adjust to the local network.
+Server=192.168.56.100
+ServerActive=192.168.56.100
+Hostname=Moodle-server
+ListenIP=192.168.56.10

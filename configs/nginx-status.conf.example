@@ -1,0 +1,21 @@
+# Local-only monitoring listener for NGINX and PHP-FPM.
+# Review the socket path and PHP-FPM version before use.
+server {
+    listen 127.0.0.1:8082;
+    server_name localhost;
+
+    location = /nginx_status {
+        stub_status;
+        allow 127.0.0.1;
+        deny all;
+    }
+
+    location ~ ^/(status|ping)$ {
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+    }
+}
