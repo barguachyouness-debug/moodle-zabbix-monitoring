@@ -1,0 +1,35 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+mysql.conf
+config.php
+*.secret
+*.credentials
+
+# Private keys and certificate bundles
+*.key
+*_rsa
+*_ed25519
+*.p12
+*.pfx
+
+# Database and application data
+*.sql
+*.sql.gz
+*.dump
+moodledata/
+
+# Logs and local exports
+*.log
+*.log.*
+*.bak
+*.backup
+*.swp
+*~
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
